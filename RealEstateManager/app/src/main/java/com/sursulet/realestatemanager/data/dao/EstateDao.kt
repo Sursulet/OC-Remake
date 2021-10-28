@@ -2,6 +2,7 @@ package com.sursulet.realestatemanager.data.dao
 
 import androidx.room.*
 import com.sursulet.realestatemanager.data.model.Estate
+import com.sursulet.realestatemanager.data.model.EstateItemView
 import com.sursulet.realestatemanager.data.model.EstateWithPhotos
 import kotlinx.coroutines.flow.Flow
 
@@ -11,6 +12,13 @@ interface EstateDao {
     @Transaction
     @Query("SELECT * FROM estate")
     fun getEstatesWithPhotos(): Flow<List<EstateWithPhotos>>
+
+    @Transaction
+    @Query("SELECT * FROM estate INNER JOIN photo LIMIT 1")
+    fun getEstatesWithPhoto(): Flow<EstateWithPhotos>
+
+    @Query("SELECT * FROM EstateItemView")
+    fun getEstateItemView(): Flow<List<EstateItemView>>
 
     @Query("SELECT * FROM estate")
     fun getEstates(): Flow<List<Estate>>

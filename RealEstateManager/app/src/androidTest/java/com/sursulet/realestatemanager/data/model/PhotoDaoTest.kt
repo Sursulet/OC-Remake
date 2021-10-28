@@ -51,7 +51,8 @@ class PhotoDaoTest {
     @Test
     fun insertPhoto() = runBlockingTest {
 
-        val item = Photo(id = 1, title = "Duplex", image = bitmap, estateId = 1)
+        //val item = Photo(id = 1, title = "Duplex", image = bitmap, estateId = 1)
+        val item = Photo(id = 1, title = "Duplex", estateId = 1)
         dao.insert(item)
 
         val results = dao.getPhotos().first()

@@ -7,7 +7,11 @@ import com.sursulet.realestatemanager.utils.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import javax.inject.Singleton
 
 @Module
@@ -16,7 +20,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(context: Context) =
+    fun provideDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(
             context,
             AppDatabase::class.java,
@@ -28,4 +32,10 @@ object AppModule {
 
     @Provides
     fun providePhotoDao(db: AppDatabase) = db.photoDao()
+
+    @ApplicationContext
+    @Provides
+    @Singleton
+    fun provideApplicationScope(defaultDispatcher: CoroutineDispatcher): CoroutineScope =
+        CoroutineScope(SupervisorJob() + defaultDispatcher)
 }

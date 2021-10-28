@@ -8,8 +8,12 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.sursulet.realestatemanager.ui.list.EstateListScreen
 import com.sursulet.realestatemanager.ui.theme.RealEstateManagerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +21,7 @@ class MainActivity : ComponentActivity() {
             RealEstateManagerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    EstateListScreen()
                 }
             }
         }
@@ -25,7 +29,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
+fun Greeting(name: String, viewModel: MainViewModel = hiltViewModel()) {
     Text(text = "Hello $name!")
 }
 

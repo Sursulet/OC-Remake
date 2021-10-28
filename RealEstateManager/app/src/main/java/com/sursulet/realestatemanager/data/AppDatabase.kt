@@ -6,10 +6,11 @@ import androidx.room.TypeConverters
 import com.sursulet.realestatemanager.data.dao.EstateDao
 import com.sursulet.realestatemanager.data.dao.PhotoDao
 import com.sursulet.realestatemanager.data.model.Estate
+import com.sursulet.realestatemanager.data.model.EstateItemView
 import com.sursulet.realestatemanager.data.model.Photo
 
 @TypeConverters(Converters::class)
-@Database(entities = [Estate::class, Photo::class], version = 1, exportSchema = false)
+@Database(entities = [Estate::class, Photo::class], views = [EstateItemView::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun estateDao(): EstateDao
