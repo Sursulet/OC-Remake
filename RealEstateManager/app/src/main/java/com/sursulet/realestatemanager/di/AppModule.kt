@@ -33,9 +33,9 @@ object AppModule {
     @Provides
     fun providePhotoDao(db: AppDatabase) = db.photoDao()
 
-    @ApplicationContext
+    @ApplicationScope
     @Provides
     @Singleton
-    fun provideApplicationScope(defaultDispatcher: CoroutineDispatcher): CoroutineScope =
+    fun provideApplicationScope(@IoDispatcher defaultDispatcher: CoroutineDispatcher): CoroutineScope =
         CoroutineScope(SupervisorJob() + defaultDispatcher)
 }

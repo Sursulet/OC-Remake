@@ -14,7 +14,8 @@ class EstateRepository @Inject constructor(
 ) {
 
     fun getEstates() = dao.getEstatesWithPhotos()
-    fun getEstatesView() = dao.getEstateItemView()
+    fun getEstatesView() = dao.getEstateItemsView()
+    fun getEstate(id: Long) = dao.getEstateWithPhotos(id)
     suspend fun insert(estate: Estate) = dao.insert(estate)
     suspend fun insert(photo: Photo) = photoDao.insert(photo)
 }

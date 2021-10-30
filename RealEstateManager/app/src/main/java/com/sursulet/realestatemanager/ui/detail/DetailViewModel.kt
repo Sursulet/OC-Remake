@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sursulet.realestatemanager.repository.EstateRepository
+import com.sursulet.realestatemanager.ui.model.toDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -20,7 +21,9 @@ class DetailViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            repository.getEstates().collect {  }
+            repository.getEstate(1).collect {
+                _state.value = it.toDetailState()
+            }
         }
     }
 }

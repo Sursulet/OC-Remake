@@ -1,5 +1,6 @@
 package com.sursulet.realestatemanager.data.model
 
+import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,6 +9,6 @@ data class Photo(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val title: String,
-    //val image: Bitmap,
+    val image: Bitmap,
     val estateId: Long
 )

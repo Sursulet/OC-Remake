@@ -7,11 +7,12 @@ import com.sursulet.realestatemanager.ui.detail.DetailState
 fun EstateItemView.toEstateItemUi() = EstateItemUi(
     image = 1,
     type = type,
-    city = title,
+    city = "title",
     price = "$price"
 )
 
 fun EstateWithPhotos.toDetailState() = DetailState(
+    gallery = photos,
     type = estate.type,
     price = estate.price.toString()
 )

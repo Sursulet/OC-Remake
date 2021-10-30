@@ -18,12 +18,12 @@ class MainViewModel @Inject constructor(
 
     init {
         Log.d(TAG, "MAIN VM: ")
-        viewModelScope.launch {
+        viewModelScope.launch {/*
             repository.insert(Estate(id = 1, type = "Duplex", price = 150000.0))
             repository.insert(Estate(id = 2, type = "House", price = 170000.0))
             repository.insert(Photo(id = 1, title = "Living Room", estateId = 1))
             repository.insert(Photo(id = 2, title = "Bathroom", estateId = 1))
             repository.insert(Photo(id = 3, title = "Bedroom", estateId = 2))
-        }
+        */}
     }
 }
