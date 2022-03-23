@@ -32,7 +32,7 @@ interface EstateDao {
     fun getRealEstate(id: Long): Flow<Estate>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(estate: Estate)
+    suspend fun insert(estate: Estate): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(photo: Photo)

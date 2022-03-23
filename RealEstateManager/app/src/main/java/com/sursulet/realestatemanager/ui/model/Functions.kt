@@ -5,7 +5,7 @@ import com.sursulet.realestatemanager.data.model.EstateWithPhotos
 import com.sursulet.realestatemanager.ui.detail.DetailState
 
 fun EstateItemView.toEstateItemUi() = EstateItemUi(
-    image = 1,
+    image = image,
     type = type,
     city = "title",
     price = "$price"

@@ -47,7 +47,7 @@ fun EstateItem(
 
 @Preview
 @Composable
-fun EstateItemPreview() {
+fun EstateItemPreview() {/*
     EstateItem(
         estate = EstateItemUi(
             image = R.drawable.ic_launcher_foreground,
@@ -55,5 +55,5 @@ fun EstateItemPreview() {
             city = "Paris",
             price = "12.0"
         )
-    )
+    )*/
 }

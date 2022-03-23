@@ -7,6 +7,7 @@ import com.sursulet.realestatemanager.data.model.EstateWithPhotos
 import com.sursulet.realestatemanager.data.model.Photo
 import com.sursulet.realestatemanager.repository.EstateRepository
 import io.mockk.every
+import io.mockk.mockk
 import io.mockk.mockkClass
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -23,6 +24,8 @@ class EstateListViewModelTest {
 
     private lateinit var viewModel: EstateListViewModel
     private val repository = mockkClass(EstateRepository::class)
+
+    //private val bitmap = Bitmap.createBitmap(16,16,Bitmap.Config.ARGB_8888)
 
     @Before
     fun setUp() {
@@ -44,7 +47,7 @@ class EstateListViewModelTest {
         EstateWithPhotos(
             estate = Estate(id = 1, type = "DD", price = 12.0),
             photos = listOf(
-                Photo(id = 1, title = "ZZ", estateId = 1)
+                Photo(id = 1, title = "ZZ", image = mockk(), estateId = 1)
             )
         )
     )

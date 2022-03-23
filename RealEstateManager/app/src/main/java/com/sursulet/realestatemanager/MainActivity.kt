@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.sursulet.realestatemanager.ui.addedit.AddEditEstateScreen
 import com.sursulet.realestatemanager.ui.list.EstateListScreen
 import com.sursulet.realestatemanager.ui.theme.RealEstateManagerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
             RealEstateManagerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    EstateListScreen()
+                    AddEditEstateScreen()
                 }
             }
         }
